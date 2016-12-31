@@ -1,4 +1,7 @@
 #TCP-IP
+``````````````````````
+
+```````````````````
 ## 1. Transport layer
 - tương đương với tầng transport trong mô hình OSI
 - điều khiển các điểm kết nối end-to-end : có hai giao thức nổi tiếng là UDP và TCP
@@ -23,7 +26,7 @@
 - cung cấp cơ chế best-effort
 - không có cơ chế phục hồi dữ liệu ( đẩy tất cả các gói tin vào đường truyền mà không quan tâm bên nhận có nhận được đầy đủ dữ liệu hay không)
 
-### 4. UDP-Header
+## 4. UDP-Header
 ![](https://upload.wikimedia.org/wikibooks/en/d/d9/Header_of_UDP.jpg)
 - có hai trường là Source port và Destination port
 - trong đó port là cách định danh (địa chỉ)  một session đang truy nhập vào đường truyền
@@ -62,7 +65,7 @@
 -  Gói tin ip gồm 2 phần : ip header và và phần được bọc trong segment của lớp 4
 - protocol : cho biết phần dữ liệu chứa loại gói tin phần giao thức nào
 
-## 9. Mapping layer 4 to applications
+## 10. Mapping layer 4 to applications
 - truyền dữ liẽu từ ứng dụng phải thông qua lớp trasport. 
 - các ứng dụng muốn truy nhập vào lớp 4 phải sử ụng các port quy định cho nó.
 - Ví dụ:
@@ -74,21 +77,25 @@ kết nối từ host tới host phải thông qa đám mây internet
 ![](https://lh4.googleusercontent.com/-HJ9ehwCKl04/V_3spI49HZI/AAAAAAAARtw/o7vXJJnTz_Q7fq7lndRIb3x9y7SlS-A9wCLcB/s1600/3-buoc.png)
 - thông qua 3 bước
 
-## 10. Cơ chế Flow control
+## 11. Cơ chế Flow control
 - khi máy gửi gửi quá nhiều dữ liệu cho máy nhận, buộc máy nhận phải buffer các gói dữ liệu vào bộ đệm để xử lý, nhưng khi vùng đệm đầy thì máy nhận phải báo cho máy truyền ngừng truyền nữa
 - khi may nhận xử lý xong (trống vùng đệm), thì nó gửi tín hiệu cho phép máy gửi tiếp tục truyền dữ liệu như cũ
 
-## 11. TCP acknowledgment
+## 12. TCP acknowledgment
 - khi máy gửi gửi một gói tin cho máy nhận thì bắt buộc máy nhận phải gửi trở lại một ack ( báo nhận) cho máy gửi nếu không máy gửi sẽ chờ trong một khoảng thời gian và tiếp tục gửi lại.
 ![](https://lh3.googleusercontent.com/gRNdNlTwNzF3mNMwbjpDmsKDLXxb40CWRsEfsRZ5Nj80S9YESW99jdkkHvQoHUpELboSXY6V4DnvMhJSCAn6Pg7jAEyrSLMEIp1CtEix-RqMogoB7vlPFwuDXZ4yV4jn-jCNVN60vk9Mtn9GUQ)
 - trong đo window size=1 nghĩa là chỉ gửi và nhận duy nhất 1 gói dữ liệu
 -  Fixed windowing : vì gửi 1gói và nhận một gói chậm sẽ làm tăng window size lên nên đưa ra giải pháp gửi một lốc lớn dữ liệu ( ví dụ window size =3 thì cứ nhận được 3 gói thì cmới báo nhận một lần)
 -  giả sử trong 3 segment gửi  đi, có một segment bị lỗi ( không đến được nơi nhận)  thì nơi nhận sẽ tự động ack 3 lại ( yêu cầu gửi lại segment 3), đồng thời yêu cầu gửi thông qua window size = 2 vì nơi nhận chỉ chịu được window size =2
 
-## 12. Chuỗi tiến trình, và số hiệu báo nhận TCP
+## 13. Chuỗi tiến trình, và số hiệu báo nhận TCP
 ![](https://lh3.googleusercontent.com/Kt9JdzfgJFqkRoNhooc3raM4NKVPFdySZY3qFoJOm_llj35RLTPsxkbucbbGkF1SpvD_EbvQkkW-BqbczD6nUL1cAKlkeWgjZJMpkOM3i_cENCbFtBRj1P2BNm7YGS1YfSJvrBeHBP-KBvJ9FQ)
 - số sequence là n thì số ack sẽ là n+1 : nghĩalà bên nhận đã nhận được n byte data và mong muốn nhận được tiếp byte thứ 11
- # Ethernet lan
+
+```````````````````````````````
+
+`````````````````````````````````
+ # Ethernet LAN
 - Trong quá trình thao tác mạng, chúng ta cần thông qua một loại mạng có quy mô nhỏ tốc độ cao , hỗ trợ chia sẻ mạng trong hệ thống.
 - mạng nội bộ có thể là mạng có diện tích nhỏ hoặc rất lớn
 - Một trong số đó là ethernet lan
@@ -125,15 +132,15 @@ kết nối từ host tới host phải thông qa đám mây internet
 	 - Sau đó trạm chờ đợi một thời gian ngẫu nhiên nào đó rồi thử truyền lại theo các quy tắc của CSMA
 - nguồn tham khảo : https://voer.edu.vn/m/cac-phuong-phap-truy-nhap-duong-truyen-vat-ly/61e112e1
 
-## 4.Cấu trúc của Ethernet  frame
+## 5.Cấu trúc của Ethernet  frame
 ![](http://www.learncisco.net/assets/images/icnd1/21-ethernet-frame-tructure.jpg)
 
-## 5. Các hình thức truyền thông trong một mạng LAN
+## 6. Các hình thức truyền thông trong một mạng LAN
 - Unicast : truyền thông 1-1 ( từ một host tới một host)
 - Broadcast : từ một host gửi dữ liệu đến tất cả các host trong hệ thống
 - Muticast: một host truyền dữ liệu đến một nhóm host trong hệ thống.
 
-## 5. Địa chỉ MAC
+## 7. Địa chỉ MAC
 - là loại địa chỉ vật lý trong môi trường layer 2, là địa chỉ máy ( duy nhất)
 - là dãy nhị phân dài 48 bit được chia thành hai phần :
 	- 24 bit đầu: có 2 bit dùng để chỉ thi cho những tính năng đặc biệt của địa chỉ, 22 bit sau dùng để định danh cho nhà sản xuất ( là duy nhất) OUI ( định danh cho nhà sản xất)
@@ -141,6 +148,9 @@ kết nối từ host tới host phải thông qa đám mây internet
 - được thể hiện dưới dạng hexa
 
 
+``````````````````````````
+
+``````````````````
 # Cabing
 Chúng ta cần có các đường dây cab để đấu nôi các thitết bị với nhau
 
@@ -190,6 +200,9 @@ Chúng ta cần có các đường dây cab để đấu nôi các thitết bị
 - Cùng nhóm (hub, switch) cáp chéo, khác nhóm cáp thẳng
 ![](http://image.slidesharecdn.com/ccnapres-130226194445-phpapp02/95/ccna-cisco-61-638.jpg?cb=1361908565)
 
+````````````````````````
+
+`````````````````````````````
 # WAN
 - Khi đấu nối với nhà cung cấp dịch vụ để thuê kênh thuê riêng, thì cần một loại mạng khác
 - WAN : wide area network
